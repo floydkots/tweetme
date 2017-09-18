@@ -6,7 +6,7 @@ from .models import Tweet
 
 # Retrieve tweet
 def tweet_detail_view(request, id=1):
-    obj = Tweet.objects.get(id=id) # Get from database
+    obj = Tweet.objects.get(id=id)  # Get from database
     context = {
         "object": obj
     }
