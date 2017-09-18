@@ -11,16 +11,24 @@ class TweetDetailView(DetailView):
     queryset = Tweet.objects.all()
     template_name = "tweets/detail_view.html"
 
-    def get_object(self):
-        return Tweet.objects.get(id=1)
+    # def get_object(self):
+    #     print(self.kwargs)
+    #     pk = self.kwargs.get("pk")
+    #     print(pk)
+    #     return Tweet.objects.get(id=pk)
 
 
 class TweetListView(ListView):
     template_name = "tweets/list_view.html"
     queryset = Tweet.objects.all()
 
-def tweet_detail_view(request, id=1):
-    obj = Tweet.objects.get(id=id)  # Get from database
+    def get_context_data(self, **kwargs):
+        context = super(TweetListView, self).get_context_data(**kwargs)
+        return context
+
+
+def tweet_detail_view(request, pk=None):
+    obj = Tweet.objects.get(pk=pk)  # Get from database
     context = {
         "object": obj
     }
