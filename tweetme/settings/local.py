@@ -29,7 +29,6 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,8 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'crispy_forms',
+    'rest_framework',
+
     'tweets',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
