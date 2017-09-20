@@ -69,19 +69,3 @@ class TweetListView(ListView):
         context['create_form'] = TweetModelForm()
         context['create_url'] = reverse_lazy("tweet:create")
         return context
-
-
-def tweet_detail_view(request, pk=None):
-    obj = get_object_or_404(Tweet, pk=pk)  # Get from database
-    context = {
-        "object": obj
-    }
-    return render(request, "tweets/detail_view.html", context)
-
-
-def tweet_list_view(request):
-    queryset = Tweet.objects.all()
-    context = {
-        "object_list": queryset
-    }
-    return render(request, "tweets/list_view.html", context)
